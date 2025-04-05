@@ -1,1 +1,0 @@
-Core library for array computing and numerical operations in Python. Supports multidimensional arrays and a large collection of mathematical functions.
