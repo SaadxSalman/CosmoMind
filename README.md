@@ -81,3 +81,53 @@ Run the Rust backend and the SvelteKit frontend to begin autonomous factory mana
 
 -----
 
+To wrap everything up, here is the complete, final file structure for **Factory-Agent**. This reflects the modular Rust backend (Agents + AI), the SvelteKit frontend, and the orchestration layers we've built.
+
+### 🏗️ Project Structure
+
+```text
+Factory-Agent/
+├── backend/                   # Rust Multi-Agent Core
+│   ├── src/
+│   │   ├── agents/            # Logic for individual agents
+│   │   │   ├── mod.rs         # Module exports
+│   │   │   ├── inspection.rs  # Vision & Defect Detection
+│   │   │   ├── logistics.rs   # Supply Chain & Inventory
+│   │   │   └── robotics.rs    # Assembly Line & Actuator Control
+│   │   ├── models/            # AI Integration
+│   │   │   ├── mod.rs
+│   │   │   └── gemma.rs       # Gemma LLM Inference (Candle)
+│   │   ├── db/                # Database Connectors
+│   │   │   ├── mod.rs
+│   │   │   ├── clickhouse.rs  # OLAP Analytics Logic
+│   │   │   └── mongodb.rs     # MERN State Persistence
+│   │   └── main.rs            # Axum Server & Orchestrator
+│   ├── Cargo.toml             # Rust dependencies (Axum, Tower-HTTP, Candle)
+│   ├── Dockerfile             # Multistage Rust build
+│   └── .env                   # API Keys, DB URLs, Model Paths
+├── frontend/                  # SvelteKit Dashboard
+│   ├── src/
+│   │   ├── lib/
+│   │   │   ├── components/    # Reusable UI parts
+│   │   │   │   ├── InspectionMonitor.svelte
+│   │   │   │   ├── LogisticsChart.svelte
+│   │   │   │   ├── RoboticsControl.svelte
+│   │   │   │   └── AIReasoning.svelte
+│   │   │   └── api.ts         # Fetch logic to talk to Rust
+│   │   ├── routes/
+│   │   │   └── +page.svelte   # Main Control Center UI
+│   │   └── app.d.ts
+│   ├── static/                # Assets & Icons
+│   ├── tailwind.config.js     # Styling configuration
+│   ├── package.json           # Frontend dependencies
+│   └── Dockerfile             # Node.js/Svelte build
+├── models/                    # Local AI Weights
+│   └── gemma-2b-it.gguf       # Local LLM file (ignore in git)
+├── scripts/                   # Utility scripts
+│   └── init_olap.sql          # Initial ClickHouse schema
+├── docker-compose.yml         # Full stack orchestration
+└── README.md                  # Project documentation
+
+```
+
+---
