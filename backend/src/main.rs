@@ -51,3 +51,10 @@ olap_client.log_action(&action).await;
 
 // Execute physical move (Mock)
 println!("Robotic Arm Action: {:?}", action);
+
+// In backend/src/main.rs
+async fn get_explanation(Json(payload): Json<String>) -> Json<String> {
+    let ai = GemmaDecisionMaker::new();
+    let explanation = ai.explain_action(&payload).await;
+    Json(explanation)
+}
