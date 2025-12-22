@@ -8,3 +8,4 @@ dotenv = "0.15"
 candle-core = "0.3" 
 # For OLAP (Example: ClickHouse or DuckDB)
 clickhouse = "0.11"
+tower-http = { version = "0.5", features = ["cors"] }
