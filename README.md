@@ -16,11 +16,18 @@ A multi-agent system that autonomously manages a factory floor. Factory-Agent us
 
 ## ⚙️ Tech Stack
 
-  * **Frontend:** [SvelteKit](https://kit.svelte.dev/)
-  * **Backend:** Rust
-  * **Data Analysis:** OLAP database
-  * **Core Model:** Fine-tuned Gemma model
-  * **Vision:** A vision model for inspection
+## 🛠️ Stack Expansion (Web Dashboard)
+
+* **Framework:** [Next.js](https://nextjs.org/) (MERN Architecture)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Database:** MongoDB (part of MERN for persistent state management)
+* **Runtime:** Node.js
+* **Frontend:** [SvelteKit](https://kit.svelte.dev/)
+* **Backend:** Rust
+* **Data Analysis:** OLAP database
+* **Core Model:** Fine-tuned Gemma model
+* **Vision:** A vision model for inspection
 
 -----
 
