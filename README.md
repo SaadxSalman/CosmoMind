@@ -14,20 +14,33 @@ A multi-agent system that autonomously manages a factory floor. Factory-Agent us
 
 -----
 
-## ⚙️ Tech Stack
+### 🛠️ The Full Stack Overview
 
-## 🛠️ Stack Expansion (Web Dashboard)
+#### **1. Core Logic & AI (The "Brain")**
 
-* **Framework:** [Next.js](https://nextjs.org/) (MERN Architecture)
-* **Language:** [TypeScript](https://www.typescriptlang.org/)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-* **Database:** MongoDB (part of MERN for persistent state management)
-* **Runtime:** Node.js
-* **Frontend:** [SvelteKit](https://kit.svelte.dev/)
-* **Backend:** Rust
-* **Data Analysis:** OLAP database
-* **Core Model:** Fine-tuned Gemma model
-* **Vision:** A vision model for inspection
+* **Language:** [Rust](https://www.rust-lang.org/) (Chosen for memory safety and zero-cost abstractions in industrial settings).
+* **Framework:** [Axum](https://github.com/tokio-rs/axum) (High-performance web framework built on the `tokio` ecosystem).
+* **AI Inference:** [Candle](https://github.com/huggingface/candle) (A minimalist ML framework for Rust to run **Gemma** and **Vision Models** locally).
+* **Task Orchestration:** [Tokio](https://tokio.rs/) (Asynchronous runtime for managing concurrent agents).
+
+#### **2. Frontend Dashboard (The "Control Tower")**
+
+* **Framework:** [SvelteKit](https://kit.svelte.dev/) (For a faster, more lightweight UI than React).
+* **Language:** [TypeScript](https://www.typescriptlang.org/) (To ensure type safety across the API boundary).
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/) (For rapid industrial UI development).
+* **Icons:** [Lucide-Svelte](https://lucide.dev/) (For clean, professional factory iconography).
+
+#### **3. Data & Storage (The "Memory")**
+
+* **OLAP Database:** [ClickHouse](https://clickhouse.com/) (Used for the high-speed telemetry and trend analysis from the factory floor).
+* **Persistent State:** [MongoDB](https://www.mongodb.com/) (Handles user settings, dashboard configurations, and non-analytical data).
+* **Caching/State:** In-memory Rust state (for real-time robotics signals).
+
+#### **4. Infrastructure & Deployment**
+
+* **Containerization:** [Docker](https://www.docker.com/) & **Docker Compose** (Standardizes the environment across ClickHouse, Mongo, and your apps).
+* **Communication:** **REST API** (Current) / **WebSockets** (Recommended for live sensor data).
+* **Environment:** `.env` (Secure handling of model paths and database credentials).
 
 -----
 
