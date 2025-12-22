@@ -35,3 +35,35 @@ impl InspectionAgent {
         }
     }
 }
+
+pub struct InventoryStatus {
+    pub raw_material_count: u32,
+    pub finished_goods: u32,
+    pub reorder_required: bool,
+}
+
+pub struct LogisticsAgent {
+    pub storage_capacity: u32,
+    pub low_stock_threshold: u32,
+}
+
+impl LogisticsAgent {
+    pub fn new() -> Self {
+        Self {
+            storage_capacity: 1000,
+            low_stock_threshold: 150,
+        }
+    }
+
+    /// Predicts needs based on current stock and defect rates from the OLAP DB
+    pub fn calculate_needs(&self, current_stock: u32, defect_rate: f32) -> InventoryStatus {
+        // Adjust threshold based on waste (defects)
+        let adjusted_threshold = self.low_stock_threshold as f32 * (1.0 + defect_rate);
+        
+        InventoryStatus {
+            raw_material_count: current_stock,
+            finished_goods: 0, // Placeholder for actual logic
+            reorder_required: (current_stock as f32) < adjusted_threshold,
+        }
+    }
+}
