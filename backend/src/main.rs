@@ -35,3 +35,19 @@ async fn handle_inspection(Json(_payload): Json<Vec<u8>>) -> Json<serde_json::Va
         "detail": "Microscopic fracture detected in upper-left quadrant"
     }))
 }
+
+// Inside an async task or route
+let inspection_result = inspection_agent.analyze_product(raw_image).await;
+
+let action = match &inspection_result {
+    InspectionResult::Clear => robotics_agent.determine_action("Clear", 1.0),
+    InspectionResult::DefectDetected { confidence, .. } => {
+        robotics_agent.determine_action("DefectDetected", *confidence)
+    }
+};
+
+// Log to OLAP for saadsalmanakram's analytics
+olap_client.log_action(&action).await;
+
+// Execute physical move (Mock)
+println!("Robotic Arm Action: {:?}", action);
