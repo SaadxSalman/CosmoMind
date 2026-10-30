@@ -1,0 +1,27 @@
+# CosmoMind runtime dependencies
+# Install extras for optional/LLM backends:
+#   pip install -e ".[dev]"
+openai>=1.0.0
+pydantic>=2.5
+pydantic-settings>=2.0
+qdrant-client>=1.7.0
+neo4j>=5.14.0
+networkx>=3.2
+numpy>=1.26
+astropy>=6.0
+astroquery>=0.4.10
+PyMuPDF>=1.23.0
+tiktoken>=0.5.0
+llama-index-core>=0.10.0
+
+# Optional LLM / PDF tooling backends (install as needed)
+# anthropic>=0.34.0
+# pylatexenc>=5.0
+# pypdf>=4.0.0
+
+# --- Development / testing ---
+# pytest>=7.4
+# pytest-asyncio>=0.23
+# respx>=0.21.0
+# pytest-mock>=3.12
+# httpx>=0.25.0

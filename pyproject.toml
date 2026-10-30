@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cosmo-mind"
+version = "0.1.0"
+description = "Agentic Multi-Modal GraphRAG for Astrophysical Discovery"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "CosmoMind Contributors" }]
+keywords = ["astrophysics", "graphrag", "astropy", "rag", "astronomy", "ai-agent"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+
+dependencies = [
+    "openai>=1.0.0",
+    "pydantic>=2.5",
+    "pydantic-settings>=2.0",
+    "qdrant-client>=1.7.0",
+    "neo4j>=5.14.0",
+    "networkx>=3.2",
+    "numpy>=1.26",
+    "astropy>=6.0",
+    "astroquery>=0.4.10",
+    "PyMuPDF>=1.23.0",
+    "tiktoken>=0.5.0",
+    "llama-index-core>=0.10.0",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.34.0"]
+dev = [
+    "pytest>=7.4",
+    "pytest-asyncio>=0.23",
+    "respx>=0.21.0",
+    "pytest-mock>=3.12",
+    "pylatexenc>=5.0",
+    "httpx>=0.25.0",
+]
+
+[project.scripts]
+cosmomind = "cosmo_mind.main:app"
+
+[tool.setuptools.packages.find]
+include = ["cosmo_mind*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

@@ -1,0 +1,60 @@
+# --- CosmoMind: never commit secrets ---
+# All API keys, tokens, and runtime configuration live ONLY in .env (git-ignored).
+.env
+*.env
+.env.local
+.env.*.local
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+*.manifest
+*.spec
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+.venv*/
+
+# --- IDE / Editor ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# --- Test / Coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+coverage.xml
+.tox/
+.cache/
+
+# --- Jupyter / notebooks ---
+.ipynb_checkpoints/
+
+# --- Project runtime data ---
+data/
+data-raw/
+vector-cache/
+chroma/
+qdrant/storage/
+neo4j/data/
+logs/
+*.log
+
+# --- OS ---
+Desktop.ini
