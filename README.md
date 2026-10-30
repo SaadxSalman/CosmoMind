@@ -19,7 +19,7 @@ It runs **fully offline in `LOCAL` mode** (deterministic LLM stub, hashing
 embedder, in‑memory vector store + NetworkX graph, and a curated reference
 catalogue used for graceful degradation) and switches transparently to
 production cloud backends (OpenAI, Qdrant, Neo4j, live astroquery) when
-configured via `.env`
+configured via `.env`.
 
 > ⭐ If a catalog service is unreachable, CosmoMind falls back to a curated
 > local reference catalogue and still returns a grounded, cited answer — it
