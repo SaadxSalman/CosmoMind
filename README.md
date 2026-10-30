@@ -22,7 +22,7 @@ production cloud backends (OpenAI, Qdrant, Neo4j, live astroquery) when
 configured via `.env`.
 
 > ⭐ If a catalog service is unreachable, CosmoMind falls back to a curated
-> local reference catalogue and still returns a grounded, cited answer — it
+> local reference catalogue and still returns a grounded, cited answer — i
 > never crashes on a network error.
 
 ---
